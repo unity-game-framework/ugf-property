@@ -1,4 +1,4 @@
 namespace UGF.Property.Runtime
 {
-    public delegate TValue PropertyGetterHandler<TValue>(TValue current);
+    public delegate TValue PropertyGetterHandler<out TValue>();
 }

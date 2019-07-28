@@ -4,8 +4,6 @@ namespace UGF.Property.Runtime
     {
         TValue Value { get; set; }
 
-        event PropertyGetterHandler<TValue> ValueGetter;
-        event PropertySetterHandler<TValue> ValueSetter;
         event PropertyChangeHandler<TValue> ValueChanged;
     }
 }
