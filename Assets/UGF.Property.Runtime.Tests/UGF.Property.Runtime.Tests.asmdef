@@ -1,0 +1,17 @@
+{
+    "name": "UGF.Property.Runtime.Tests",
+    "references": [
+        "GUID:96dac328f2720314e88a046ca400fae6"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
