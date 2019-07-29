@@ -1,5 +1,8 @@
 namespace UGF.Property.Runtime
 {
+    /// <summary>
+    /// Represents an abstract implementation of property with explicit value type.
+    /// </summary>
     public abstract class PropertyBase<TValue> : IProperty<TValue>
     {
         public TValue Value
@@ -37,7 +40,15 @@ namespace UGF.Property.Runtime
             Value = (TValue)value;
         }
 
+        /// <summary>
+        /// Gets value directly.
+        /// </summary>
         protected abstract TValue GetValueDirect();
+
+        /// <summary>
+        /// Sets value directly.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
         protected abstract void SetValueDirect(TValue value);
     }
 }

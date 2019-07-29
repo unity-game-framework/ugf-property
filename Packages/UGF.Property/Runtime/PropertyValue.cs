@@ -1,5 +1,8 @@
 namespace UGF.Property.Runtime
 {
+    /// <summary>
+    /// Represents a property with value.
+    /// </summary>
     public class PropertyValue<TValue> : PropertyBase<TValue>
     {
         public override bool CanRead { get; } = true;
@@ -7,6 +10,10 @@ namespace UGF.Property.Runtime
 
         private TValue m_value;
 
+        /// <summary>
+        /// Creates property with specified value.
+        /// </summary>
+        /// <param name="value">The value of the property.</param>
         public PropertyValue(TValue value)
         {
             m_value = value;
