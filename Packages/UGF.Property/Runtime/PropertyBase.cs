@@ -50,5 +50,15 @@ namespace UGF.Property.Runtime
         /// </summary>
         /// <param name="value">The value to set.</param>
         protected abstract void SetValueDirect(TValue value);
+
+        public static implicit operator TValue(PropertyBase<TValue> property)
+        {
+            return property.Value;
+        }
+
+        public override string ToString()
+        {
+            return CanRead ? Value.ToString() : base.ToString();
+        }
     }
 }
