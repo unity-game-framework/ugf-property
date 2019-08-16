@@ -17,8 +17,8 @@ namespace UGF.Property.Runtime
         /// </summary>
         public PropertySetterHandler<TValue> Setter { get { return m_setter ?? throw new InvalidOperationException("The property setter not specified."); } }
 
-        public override bool CanRead { get { return Getter != null; } }
-        public override bool CanWrite { get { return Setter != null; } }
+        public override bool CanRead { get { return m_getter != null; } }
+        public override bool CanWrite { get { return m_setter != null; } }
 
         private readonly PropertyGetterHandler<TValue> m_getter;
         private readonly PropertySetterHandler<TValue> m_setter;
