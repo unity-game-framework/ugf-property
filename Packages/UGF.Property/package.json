@@ -1,9 +1,9 @@
 {
     "name": "com.ugf.property",
     "displayName": "UGF.Property",
-    "version": "1.0.0-preview",
+    "version": "1.0.0-preview.1",
     "unity": "2019.2",
-    "description": "No description.",
+    "description": "Provides property structure as value wrapper with access track and control.",
     "author": {
         "name": "Unity Game Framework",
         "url": "https://github.com/unity-game-framework"

@@ -26,6 +26,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Nothing.
 
+## 1.0.0-preview.1 - 2019-08-16
+- [Commits](https://github.com/unity-game-framework/ugf-property/compare/1.0.0-preview...1.0.0-preview.1)
+- [Milestone](https://github.com/unity-game-framework/ugf-property/milestone/2?closed=1)
+
+### Added
+- Package short description.
+- `PropertyTarget`: to create property with reference target to get or set value.
+
+### Changed
+- Update to Unity 2019.2.
+
 ## 1.0.0-preview - 2019-07-29
 - [Commits](https://github.com/unity-game-framework/ugf-property/compare/79e52a6...1.0.0-preview)
 - [Milestone](https://github.com/unity-game-framework/ugf-property/milestone/1?closed=1)

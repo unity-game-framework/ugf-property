@@ -4,7 +4,7 @@ UGF.Property
 
 ## Info
 
-- **Version**: `1.0.0-preview`
+- **Version**: `1.0.0-preview.1`
 - **Unity Version**: `2019.2.0`
 - **Api Compatibility Level**: `.NET Standard 2.0`
 
@@ -23,7 +23,7 @@ UGF.Property
 
 ## Description
 
-No description.
+Provides property structure as value wrapper with access track and control.
 
 ## How to Install
 
