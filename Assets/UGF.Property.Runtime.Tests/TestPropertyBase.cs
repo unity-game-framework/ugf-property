@@ -55,5 +55,17 @@ namespace UGF.Property.Runtime.Tests
 
             Assert.AreEqual(15, property.Value);
         }
+
+        [Test]
+        public void ImplicitConvertToValue()
+        {
+            var property = new Property();
+
+            property.Value = 15;
+
+            int value = property;
+
+            Assert.AreEqual(15, value);
+        }
     }
 }
