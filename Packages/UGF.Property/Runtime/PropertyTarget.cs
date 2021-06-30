@@ -6,7 +6,7 @@ namespace UGF.Property.Runtime
     /// <summary>
     /// Represents a property with specified target, getter and setter.
     /// </summary>
-    public class PropertyTarget<TTarget, TValue> : PropertyBase<TValue>
+    public class PropertyTarget<TTarget, TValue> : Property<TValue>
     {
         /// <summary>
         /// Gets target used to get and set value.
@@ -29,20 +29,27 @@ namespace UGF.Property.Runtime
         private readonly PropertyTargetGetterHandler<TTarget, TValue> m_getter;
         private readonly PropertyTargetSetterHandler<TTarget, TValue> m_setter;
 
-        /// <summary>
-        /// Creates property with specified target, getter and setter.
-        /// </summary>
-        /// <param name="target">The target to get and set value.</param>
-        /// <param name="getter">The getter of the property.</param>
-        /// <param name="setter">The setter of the property.</param>
-        public PropertyTarget(TTarget target, PropertyTargetGetterHandler<TTarget, TValue> getter = null, PropertyTargetSetterHandler<TTarget, TValue> setter = null)
+        public PropertyTarget(TTarget target, PropertyTargetSetterHandler<TTarget, TValue> setter) : this(target)
+        {
+            m_setter = setter;
+        }
+
+        public PropertyTarget(TTarget target, PropertyTargetGetterHandler<TTarget, TValue> getter) : this(target)
+        {
+            m_getter = getter;
+        }
+
+        public PropertyTarget(TTarget target, PropertyTargetGetterHandler<TTarget, TValue> getter, PropertyTargetSetterHandler<TTarget, TValue> setter) : this(target)
+        {
+            m_getter = getter ?? throw new ArgumentNullException(nameof(getter));
+            m_setter = setter ?? throw new ArgumentNullException(nameof(setter));
+        }
+
+        private PropertyTarget(TTarget target)
         {
             if (typeof(TTarget).IsClass && EqualityComparer<TTarget>.Default.Equals(target, default)) throw new ArgumentNullException(nameof(target));
 
             Target = target;
-
-            m_getter = getter;
-            m_setter = setter;
         }
 
         protected override TValue GetValueDirect()

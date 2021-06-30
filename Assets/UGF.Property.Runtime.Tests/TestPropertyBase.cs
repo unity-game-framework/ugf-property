@@ -4,7 +4,7 @@ namespace UGF.Property.Runtime.Tests
 {
     public class TestPropertyBase
     {
-        private class Property : PropertyBase<int>
+        private class Property : Property<int>
         {
             public override bool CanRead { get; } = true;
             public override bool CanWrite { get; } = true;

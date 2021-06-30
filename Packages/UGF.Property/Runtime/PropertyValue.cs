@@ -1,32 +1,33 @@
+using System;
+
 namespace UGF.Property.Runtime
 {
     /// <summary>
     /// Represents a property with value.
     /// </summary>
-    public class PropertyValue<TValue> : PropertyBase<TValue>
+    public class PropertyValue<TValue> : Property<TValue>
     {
-        public override bool CanRead { get; } = true;
-        public override bool CanWrite { get; } = true;
+        public override bool CanRead { get; }
+        public override bool CanWrite { get; }
 
         private TValue m_value;
 
-        /// <summary>
-        /// Creates property with specified value.
-        /// </summary>
-        /// <param name="value">The value of the property.</param>
-        public PropertyValue(TValue value)
+        public PropertyValue(TValue value, PropertyValueAccess access = PropertyValueAccess.All)
         {
             m_value = value;
+
+            CanRead = access == PropertyValueAccess.All || access == PropertyValueAccess.ReadOnly;
+            CanWrite = access == PropertyValueAccess.All || access == PropertyValueAccess.WriteOnly;
         }
 
         protected override TValue GetValueDirect()
         {
-            return m_value;
+            return CanRead ? m_value : throw new InvalidOperationException("Property can not be read.");
         }
 
         protected override void SetValueDirect(TValue value)
         {
-            m_value = value;
+            m_value = CanWrite ? value : throw new InvalidOperationException("Property can not be written.");
         }
     }
 }
