@@ -2,30 +2,12 @@ using NUnit.Framework;
 
 namespace UGF.Property.Runtime.Tests
 {
-    public class TestPropertyBase
+    public class TestProperty
     {
-        private class Property : Property<int>
-        {
-            public override bool CanRead { get; } = true;
-            public override bool CanWrite { get; } = true;
-
-            private int m_value;
-
-            protected override int GetValueDirect()
-            {
-                return m_value;
-            }
-
-            protected override void SetValueDirect(int value)
-            {
-                m_value = value;
-            }
-        }
-
         [Test]
         public void Value()
         {
-            var property = new Property();
+            var property = new PropertyValue<int>();
             bool changedInvoked = false;
             bool changedValueInvoked = false;
 
@@ -41,7 +23,7 @@ namespace UGF.Property.Runtime.Tests
         [Test]
         public void GetValue()
         {
-            var property = new Property();
+            var property = new PropertyValue<int>();
 
             Assert.AreEqual(0, property.GetValue());
         }
@@ -49,7 +31,7 @@ namespace UGF.Property.Runtime.Tests
         [Test]
         public void SetValue()
         {
-            var property = new Property();
+            var property = new PropertyValue<int>();
 
             property.SetValue(15);
 
@@ -59,7 +41,7 @@ namespace UGF.Property.Runtime.Tests
         [Test]
         public void ImplicitConvertToValue()
         {
-            var property = new Property();
+            var property = new PropertyValue<int>();
 
             property.Value = 15;
 
