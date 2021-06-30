@@ -12,7 +12,7 @@ namespace UGF.Property.Runtime
 
         private TValue m_value;
 
-        public PropertyValue(TValue value, PropertyValueAccess access = PropertyValueAccess.All)
+        public PropertyValue(TValue value = default, PropertyValueAccess access = PropertyValueAccess.All)
         {
             m_value = value;
 
