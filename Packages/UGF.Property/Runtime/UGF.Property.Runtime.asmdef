@@ -1,3 +1,14 @@
-﻿{
-	"name": "UGF.Property.Runtime"
+{
+    "name": "UGF.Property.Runtime",
+    "rootNamespace": "UGF.Property.Runtime",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

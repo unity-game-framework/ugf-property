@@ -1,47 +1,59 @@
-using System;
-
 namespace UGF.Property.Runtime
 {
     /// <summary>
-    /// Represents a property with specified getter and setter.
+    /// Represents an abstract implementation of property with explicit value type.
     /// </summary>
-    public class Property<TValue> : PropertyBase<TValue>
+    public abstract class Property<TValue> : IProperty<TValue>
     {
-        /// <summary>
-        /// Gets the getter of the property, if specified.
-        /// </summary>
-        public PropertyGetterHandler<TValue> Getter { get { return m_getter ?? throw new InvalidOperationException("The property getter not specified."); } }
-
-        /// <summary>
-        /// Gets the setter of the property, if specified.
-        /// </summary>
-        public PropertySetterHandler<TValue> Setter { get { return m_setter ?? throw new InvalidOperationException("The property setter not specified."); } }
-
-        public override bool CanRead { get { return m_getter != null; } }
-        public override bool CanWrite { get { return m_setter != null; } }
-
-        private readonly PropertyGetterHandler<TValue> m_getter;
-        private readonly PropertySetterHandler<TValue> m_setter;
-
-        /// <summary>
-        /// Creates property with specified getter and setter.
-        /// </summary>
-        /// <param name="getter">The getter of the property.</param>
-        /// <param name="setter">The setter of the property.</param>
-        public Property(PropertyGetterHandler<TValue> getter = null, PropertySetterHandler<TValue> setter = null)
+        public TValue Value
         {
-            m_getter = getter;
-            m_setter = setter;
+            get
+            {
+                TValue current = GetValueDirect();
+
+                return current;
+            }
+            set
+            {
+                TValue current = GetValueDirect();
+
+                SetValueDirect(value);
+
+                Changed?.Invoke(this);
+                ValueChanged?.Invoke(this, current, value);
+            }
         }
 
-        protected override TValue GetValueDirect()
+        public abstract bool CanRead { get; }
+        public abstract bool CanWrite { get; }
+
+        public event PropertyHandler Changed;
+        public event PropertyChangeHandler<TValue> ValueChanged;
+
+        public object GetValue()
         {
-            return Getter();
+            return Value;
         }
 
-        protected override void SetValueDirect(TValue value)
+        public void SetValue(object value)
         {
-            Setter(value);
+            Value = (TValue)value;
+        }
+
+        /// <summary>
+        /// Gets value directly.
+        /// </summary>
+        protected abstract TValue GetValueDirect();
+
+        /// <summary>
+        /// Sets value directly.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        protected abstract void SetValueDirect(TValue value);
+
+        public static implicit operator TValue(Property<TValue> property)
+        {
+            return property.Value;
         }
     }
 }
