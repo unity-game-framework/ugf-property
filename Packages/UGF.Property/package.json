@@ -1,7 +1,7 @@
 {
   "name": "com.ugf.property",
   "displayName": "UGF.Property",
-  "version": "1.0.0-preview.1",
+  "version": "2.0.0-preview",
   "unity": "2021.1",
   "apiCompatibility": ".NET Standard 2.0",
   "description": "Provides property structure as value wrapper with track and control.",
