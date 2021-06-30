@@ -5,34 +5,26 @@ UGF.Property
 ## Info
 
 - **Version**: `1.0.0-preview.1`
-- **Unity Version**: `2019.2.0`
-- **Api Compatibility Level**: `.NET Standard 2.0`
+- **Unity**: `2021.1`
+- **API Compatibility Level**: `.NET Standard 2.0`
 
 ### Dependencies
 
 - N/A
 
+
+### Description
+
+Provides property structure as value wrapper with track and control.
+
 ### Changelog
 
-- [Full changelog][1]
+- [Full changelog](changelog.md)
 
-### Registries
+### Registry
 
-- [Stable][2] (N/A)
-- [Develop][3]
-
-## Description
-
-Provides property structure as value wrapper with access track and control.
+Read about where packages stored: [Registry](https://github.com/unity-game-framework/organization/blob/main/docs/registry.md).
 
 ## How to Install
 
-Read about how to install any packages from the `Unity Game Framework` registry: [Install Package][4].
-
----
-> Unity Game Framework | Copyright 2019
-
-[1]: changelog.md
-[2]: https://bintray.com/unity-game-framework/stable/com.ugf.property
-[3]: https://bintray.com/unity-game-framework/dev/com.ugf.property
-[4]: https://github.com/unity-game-framework/ugf-documentation/wiki/Install-Package
+Read about how to install any packages from the `Unity Game Framework` registry: [Install Package](https://github.com/unity-game-framework/organization/blob/main/docs/install-packages.md).
