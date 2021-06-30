@@ -1,12 +1,22 @@
 {
-    "name": "com.ugf.property",
-    "displayName": "UGF.Property",
-    "version": "1.0.0-preview.1",
-    "unity": "2019.2",
-    "description": "Provides property structure as value wrapper with access track and control.",
-    "author": {
-        "name": "Unity Game Framework",
-        "url": "https://github.com/unity-game-framework"
-    },
-    "dependencies": {}
+  "name": "com.ugf.property",
+  "displayName": "UGF.Property",
+  "version": "1.0.0-preview.1",
+  "unity": "2021.1",
+  "apiCompatibility": ".NET Standard 2.0",
+  "description": "Provides property structure as value wrapper with access track and control.",
+  "author": {
+    "name": "Unity Game Framework",
+    "url": "https://github.com/unity-game-framework"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "publishConfig": {
+    "registry": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
+  },
+  "dependencies": {}
 }
